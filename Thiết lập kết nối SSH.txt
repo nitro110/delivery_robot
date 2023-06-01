@@ -1,0 +1,148 @@
+#----------------------------Cấu hình SSH -------------------------------
+
+Để cấu hình ssh truy cập từ xa ta cần làm những bước sau:
+Trên pc_robot run lệnh sau để setup:
+# sudo apt update
+# sudo apt install openssh-server
+# sudo systemctl status ssh
+# sudo ufw allow ssh
+
+=> Như vậy là ta setup xong ssh cho máy pc_robot
+
+Để truy cập ssh từ xa trên pc_my run lệnh
+# ssh username@ip_address
+exp: ssh robocon@192.168.0.104
+Trong đó: username: là tên user khi ta cài ubuntu cho pc_robot
+	ip_address: là tên ip của pc_robot ( lưu ý với mỗi wifi ta có 1 địa chỉ khác nhau )
+	Để kiểm tra được địa chỉ ip trên pc_robot là gì ta có thể chạy câu lệnh
+# ip a 
+
+Note: Chỉ cần cấu hình ssh trên pc_robot
+
+
+
+
+
+
+#----------------------------Đồng bộ thời gian-------------------
+Khi ta kết nối robot thật ta cần đồng bộ thời gian để có thể chạy được các gói slam hay navigation
+
+Dưới đây là hướng dẫn đồng bộ thời gian 2 máy pc_robot và pc_my
+B1: sudo apt autoremove ntp
+B2: sudo apt install chrony -y
+B3: sudo nano/etc/chrony/chrony.conf
+B4: thêm # vào pool-pool2
+B5: thêm server 192.168.0.110 iburst prefect ( Trong đó 192.168.0.110 là ip của pc_my vì ta muốn đồng bộ theo ip của pc_my để kiểm tra ip của pc_my ta run câu lệnh # ip a)
+Note: Đối với pc_robot ta chỉ cần làm đến bước 5
+Đối với pc_my ta làm tiếp bước sau:
+B6: thêm 
+#manual
+allow 192.168.0.104 ( ip của pc_robot bản chấp của câu lệnh là cho phép pc_robot đồng bộ thời gian với pc_my )
+smoothtime 400 0.01
+
+Note: tới đây ta nhập CTR+X để lưu các cài đặt kia
+
+Tiếp theo để đồng bộ thành công ta cần restart lại trình đồng bộ thời gian của cả 2 pc
+
+
+B7: sudo systemctl restart chrony
+B8: chronyc tracking ( kiểm tra pc_robot và pc_my giống tham số ip đầu tiên là oke và 11/12 )
+
+
+
+
+
+
+
+
+
+#-------------------------ROS1(Noetic)---------------------------
+- Để 2 con có thể giao tiếp được với nhau thì ta cần quy định 1 con là ROS_MASTER
+- Ở đây ta quy định con pc_robot là ROS_MASTER
+- Để làm được điều đó thì ta cần thực hiện các bước sau ở cả pc_robot và pc_my
+
+Đầu tiên: 
+Ta thiết lập kết nối SSH tới pc_robot từ pc_my
+exam:
+ter(1): ssh robocon@192.168.0.104
+=> robocon$ sudo nano ~/.bashrc
+ta thêm câu lệnh
+export ROS_MASTER_URI=http://192.168.0.104:11311
+export ROS_HOSTNAME=192.168.0.104
+
+ter(2)
+nitro110$ gedit ~/.bashrc
+ta thêm câu lệnh
+export ROS_MASTER_URI=http://192.168.0.104:11311
+export ROS_HOSTNAME=192.168.0.110
+
+Sau khi thêm xong ở cả 2con ta có thể tắt đi và ssh lại pc_robot
+lúc này ta có thể truy cập vào catkin_ws trên pc_robot và run các node lên ( mục đích thường là run node lidar hoặc node chứa thông tin cảm biến điểu khiển )
+ex: roslaunch rplidar_ros rplidar.launch
+
+- Khi đó ta có thể kiểm tra trên pc_my câu lệnh
+nitro110$ rosnode list
+để kiểm tra xem 2 pc đã giao tiếp được với nhau chưa
+
+
+
+#--------------------------cuối cùng để tắt kết nối và tắt hẳn pc_robot từ xa---------------
+
+Ta sử dụng câu lệnh: sudo systemctl poweroff
+
+
+
+
+
+
+
+#-----------------------------ROS2(foxy)------------------------------------------
+Tượng tự như ROS1 để điều khiển từ xa được pc_robot
+Đầu tiên ta kết nối ssh 2 con pc
+- tiếp theo đối với ros2 thì ko có con nào là MASTER nên mặc định khi ta không thiết lập thông số gì thì 2 máy tính cùng cài ros2 cùng kết nối chung một wifi có thểt giao tiếp được với nhau.
+- Để tránh lỗi và quy định giao tiếp với mỗi con khác nhau ta có thể thêm câu lệnh sau vào file bashrc của từng pc
+- Trên pc_robot ta thêm câu lệnh sau vào file bashrc
+
+export ROS_LOCALHOST_ONLY=2
+export ROS_DOMAIN_ID=3
+
+- Trên pc_my ta cũng thêm câu lệnh sau vào file bashrc
+
+export ROS_LOCALHOST_ONLY=2
+export ROS_DOMAIN_ID=3
+
+Giải thích: Về bản chất câu lệnh
+- export ROS_DOMAIN_ID=3 là để thiết lập kênh 3 là kênh giao tiếp của cả 3 con pc. Trường hợp 2 con pc để 2 số kênh khác nhau sẽ không thể giao tiếp được với nhau.
+- export ROS_LOCALHOST_ONLY=2 là để thiết lập số robot có thể nói chuyện ví dụ đặt là 2 thì tối đa chỉ có 2 con tương tác giao tiếp với nhau
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
