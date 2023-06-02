@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot name="robot_swerve" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<link name="base_footprint"/>
+<!-- <link name="base_footprint"/> -->
 
 <link name="base_link">
   <inertial>
@@ -29,7 +29,7 @@
 </link>
 
 
-<link name="hoder_front_left_link_1">
+<link name="steering_front_left_link_1">
   <inertial>
     <origin xyz="-0.002154973883960132 0.029325881673029908 -0.05340557293320429" rpy="0 0 0"/>
     <mass value="2.725786674997393"/>
@@ -39,7 +39,7 @@
   <visual>
     <origin xyz="-0.3 -0.25 -0.15" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/hoder_front_left_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/steering_front_left_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
      <material name="green">
       <color rgba="0.0 1.0 0.0 1.0"/>
@@ -49,7 +49,7 @@
   <collision>
     <origin xyz="-0.3 -0.25 -0.15" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/hoder_front_left_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/steering_front_left_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -81,7 +81,7 @@
 </link>
 
 
-<link name="hoder_front_right_link_1">
+<link name="steering_front_right_link_1">
   <inertial>
     <origin xyz="-0.002154975530284542 -0.029325882748917065 -0.053405570351621384" rpy="0 0 0"/>
     <mass value="2.7257867924470394"/>
@@ -91,7 +91,7 @@
   <visual>
     <origin xyz="-0.3 0.25 -0.15" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/hoder_front_right_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/steering_front_right_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
      <material name="green">
         <color rgba="0.0 1.0 0.0 1.0"/>
@@ -101,7 +101,7 @@
   <collision>
     <origin xyz="-0.3 0.25 -0.15" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/hoder_front_right_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/steering_front_right_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -134,7 +134,7 @@
 </link>
 
 
-<link name="hoder_back_right_link_1">
+<link name="steering_rear_right_link_1">
   <inertial>
     <origin xyz="0.002154976007408882 -0.0293258829083054 -0.05340557305434568" rpy="0 0 0"/>
     <mass value="2.7257867677183323"/>
@@ -144,7 +144,7 @@
   <visual>
     <origin xyz="0.3 0.25 -0.15" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/hoder_back_right_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/steering_rear_right_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
      <material name="green">
         <color rgba="0.0 1.0 0.0 1.0"/>
@@ -154,12 +154,12 @@
   <collision>
     <origin xyz="0.3 0.25 -0.15" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/hoder_back_right_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/steering_rear_right_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="wheel_back_right_link_1">
+<link name="wheel_rear_right_link_1">
   <inertial>
     <origin xyz="-0.001050888297434771 0.07014892128100272 -0.00015447191071956377" rpy="0 0 0"/>
     <mass value="7.520363690354945"/>
@@ -169,7 +169,7 @@
   <visual>
     <origin xyz="0.302085 0.31638 -0.010803" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/wheel_back_right_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_rear_right_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="yellow">
       <color rgba="1.0 1.0 0.0 1.0"/>
@@ -179,12 +179,12 @@
   <collision>
     <origin xyz="0.302085 0.31638 -0.010803" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/wheel_back_right_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_rear_right_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="hoder_back_left_link_1">
+<link name="steering_rear_left_link_1">
   <inertial>
     <origin xyz="0.0021549732313028702 0.029325881245285235 -0.05340557292901292" rpy="0 0 0"/>
     <mass value="2.725786615393923"/>
@@ -194,7 +194,7 @@
   <visual>
     <origin xyz="0.3 -0.25 -0.15" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/hoder_back_left_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/steering_rear_left_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
      <material name="green">
       <color rgba="0.0 1.0 0.0 1.0"/>
@@ -204,13 +204,13 @@
   <collision>
     <origin xyz="0.3 -0.25 -0.15" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/hoder_back_left_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/steering_rear_left_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
 
-<link name="wheel_back_left_link_1">
+<link name="wheel_rear_left_link_1">
   <inertial>
     <origin xyz="-0.0010517287062624114 -0.0701484724958567 -0.00015489301004372596" rpy="0 0 0"/>
     <mass value="7.520410979673579"/>
@@ -220,7 +220,7 @@
   <visual>
     <origin xyz="0.302084 -0.3163 -0.010803" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/wheel_back_left_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_rear_left_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="yellow">
         <color rgba="1.0 1.0 0.0 1.0"/>
@@ -230,77 +230,77 @@
   <collision>
     <origin xyz="0.302084 -0.3163 -0.010803" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://robot_swerve_description/meshes/wheel_back_left_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_rear_left_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<joint name="base_joint" type="fixed">
+<!-- <joint name="base_joint" type="fixed">
   <parent link="base_footprint"/>
   <child link="base_link"/>
   <origin xyz="0 0 0.010" rpy="0 0 0"/>
-</joint>
+</joint> -->
 
-<joint name="hoder_front_left_joint" type="continuous">
+<joint name="steering_front_left_joint" type="continuous">
   <origin xyz="0.3 0.25 0.15" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="hoder_front_left_link_1"/>
+  <child link="steering_front_left_link_1"/>
   <limit effort="5" lower="-2.1" upper="2.1" velocity="6.28"/>
   <axis xyz="0.0 0.0 -1.0"/>
 </joint>
 
 <joint name="wheel_front_left_joint" type="continuous">
   <origin xyz="0.002084 0.066305 -0.139197" rpy="0 0 0"/>
-  <parent link="hoder_front_left_link_1"/>
+  <parent link="steering_front_left_link_1"/>
   <child link="wheel_front_left_link_1"/>
   <limit effort="1.5" velocity="20"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="hoder_front_right_joint" type="continuous">
+<joint name="steering_front_right_joint" type="continuous">
   <origin xyz="0.3 -0.25 0.15" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="hoder_front_right_link_1"/>
+  <child link="steering_front_right_link_1"/>
   <limit effort="5" lower="-2.1" upper="2.1" velocity="6.28"/>
   <axis xyz="0.0 0.0 -1.0"/>
 </joint>
 
 <joint name="wheel_front_right_joint" type="continuous">
   <origin xyz="0.002085 -0.066351 -0.139197" rpy="0 0 0"/>
-  <parent link="hoder_front_right_link_1"/>
+  <parent link="steering_front_right_link_1"/>
   <child link="wheel_front_right_link_1"/>
   <limit effort="1.5" velocity="20"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="hoder_back_right_joint" type="continuous">
+<joint name="steering_rear_right_joint" type="continuous">
   <origin xyz="-0.3 -0.25 0.15" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="hoder_back_right_link_1"/>
+  <child link="steering_rear_right_link_1"/>
   <limit effort="5" lower="-2.1" upper="2.1" velocity="6.28"/>
   <axis xyz="0.0 0.0 -1.0"/>
 </joint>
 
-<joint name="wheel_back_right_joint" type="continuous">
+<joint name="wheel_rear_right_joint" type="continuous">
   <origin xyz="-0.002085 -0.06638 -0.139197" rpy="0 0 0"/>
-  <parent link="hoder_back_right_link_1"/>
-  <child link="wheel_back_right_link_1"/>
+  <parent link="steering_rear_right_link_1"/>
+  <child link="wheel_rear_right_link_1"/>
   <limit effort="1.5" velocity="20"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="hoder_back_left_joint" type="continuous">
+<joint name="steering_rear_left_joint" type="continuous">
   <origin xyz="-0.3 0.25 0.15" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="hoder_back_left_link_1"/>
+  <child link="steering_rear_left_link_1"/>
   <limit effort="5" lower="-2.1" upper="2.1" velocity="6.28"/>
   <axis xyz="0.0 0.0 -1.0"/>
 </joint>
 
-<joint name="wheel_back_left_joint" type="continuous">
+<joint name="wheel_rear_left_joint" type="continuous">
   <origin xyz="-0.002084 0.0663 -0.139197" rpy="0 0 0"/>
-  <parent link="hoder_back_left_link_1"/>
-  <child link="wheel_back_left_link_1"/>
+  <parent link="steering_rear_left_link_1"/>
+  <child link="wheel_rear_left_link_1"/>
   <limit effort="1.5" velocity="20"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
@@ -437,7 +437,7 @@
       <state_interface name="effort"/>
     </joint>
 
-    <joint name="wheel_back_left_joint">
+    <joint name="wheel_rear_left_joint">
       <command_interface name="velocity">
         <param name="min">-3.14</param>
         <param name="max">3.14</param>
@@ -446,7 +446,7 @@
       <state_interface name="effort"/>
     </joint>
 
-    <joint name="wheel_back_right_joint">
+    <joint name="wheel_rear_right_joint">
       <command_interface name="velocity">
         <param name="min">-3.14</param>
         <param name="max">3.14</param>
@@ -455,7 +455,7 @@
       <state_interface name="effort"/>
     </joint>
 
-    <joint name="hoder_front_left_joint">
+    <joint name="steering_front_left_joint">
       <command_interface name="position">
         <param name="min">-3.14</param>
         <param name="max">3.14</param>
@@ -465,7 +465,7 @@
       <state_interface name="effort"/>
     </joint>
 
-    <joint name="hoder_front_right_joint">
+    <joint name="steering_front_right_joint">
       <command_interface name="position">
         <param name="min">-3.14</param>
         <param name="max">3.14</param>
@@ -475,7 +475,7 @@
       <state_interface name="effort"/>
     </joint>
 
-    <joint name="hoder_back_left_joint">
+    <joint name="steering_rear_left_joint">
       <command_interface name="position">
         <param name="min">-3.14</param>
         <param name="max">3.14</param>
@@ -485,7 +485,7 @@
       <state_interface name="effort"/>
     </joint>
 
-    <joint name="hoder_back_right_joint">
+    <joint name="steering_rear_right_joint">
       <command_interface name="position">
         <param name="min">-3.14</param>
         <param name="max">3.14</param>

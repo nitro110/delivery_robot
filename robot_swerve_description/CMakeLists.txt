@@ -56,8 +56,6 @@ install(
 
 install(
   PROGRAMS
-  launch/robot_sim_swerve.launch.py
-  launch/robot_state_publisher.launch.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
