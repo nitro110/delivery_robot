@@ -70,25 +70,25 @@ Visualization Manager:
         base_link:
           Alpha: 1
           Value: true
-        hoder_back_left_link_1:
+        steering_rear_left_link_1:
           Alpha: 1
           Value: true
-        wheel_back_left_link_1:
+        wheel_rear_left_link_1:
           Alpha: 1
           Value: true
-        hoder_back_right_link_1:
+        steering_rear_right_link_1:
           Alpha: 1
           Value: true
-        wheel_back_right_link_1:
+        wheel_rear_right_link_1:
           Alpha: 1
           Value: true
-        hoder_front_left_link_1:
+        steering_front_left_link_1:
           Alpha: 1
           Value: true
         wheel_front_left_link_1:
           Alpha: 1
           Value: true
-        hoder_front_right_link_1:
+        steering_front_right_link_1:
           Alpha: 1
           Value: true
         wheel_front_right_link_1:
@@ -103,34 +103,31 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        base_footprint:
+        odom:
           Alpha: 1
           Value: true
         base_link:
           Alpha: 1
           Value: true
-        odom:
+        steering_rear_left_link_1:
           Alpha: 1
           Value: true
-        hoder_back_left_link_1:
+        wheel_rear_left_link_1:
           Alpha: 1
           Value: true
-        wheel_back_left_link_1:
+        steering_rear_right_link_1:
           Alpha: 1
           Value: true
-        hoder_back_right_link_1:
+        wheel_rear_right_link_1:
           Alpha: 1
           Value: true
-        wheel_back_right_link_1:
-          Alpha: 1
-          Value: true
-        hoder_front_left_link_1:
+        steering_front_left_link_1:
           Alpha: 1
           Value: true
         wheel_front_left_link_1:
           Alpha: 1
           Value: true
-        hoder_front_right_link_1:
+        steering_front_right_link_1:
           Alpha: 1
           Value: true
         wheel_front_right_link_1:
@@ -143,24 +140,23 @@ Visualization Manager:
       Show Names: true
       Tree:
         odom:
-          base_footprint:
-            base_link:
-              hoder_back_left_link_1:
-                {}
-              wheel_back_left_link_1:
-                {}
-              hoder_back_right_link_1:
-                {}
-              wheel_back_right_link_1:
-                {}
-              hoder_front_left_link_1:
-                {}
-              wheel_front_left_link_1:
-                {}
-              hoder_front_right_link_1:
-                {}
-              wheel_front_right_link_1:
+          base_link:
+            steering_rear_left_link_1:
               {}
+            wheel_rear_left_link_1:
+              {}
+            steering_rear_right_link_1:
+              {}
+            wheel_rear_right_link_1:
+              {}
+            steering_front_left_link_1:
+              {}
+            wheel_front_left_link_1:
+              {}
+            steering_front_right_link_1:
+              {}
+            wheel_front_right_link_1:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
