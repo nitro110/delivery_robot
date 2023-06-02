@@ -1,0 +1,1131 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <model name='robot_swerve'>
+
+    <!-- <link name="base_footprint"/>
+  
+    <joint name="base_joint" type="fixed">
+      <parent>base_footprint</parent>
+      <child>base_link</child>
+      <pose>0.0 0.0 0.010 0 0 0</pose>
+    </joint> -->
+
+    <!-- base_link -->
+    <link name="base_link">
+
+      <inertial>
+          <pose>-1.7560433548719815e-16 -1.1706955699146543e-16 0.16007682828480888 0 0 0</pose>
+          <mass>312.2452326040869</mass>
+          <inertia>
+            <ixx>10.489644</ixx>
+            <ixy>-0.0</ixy>
+            <ixz>-0.0</ixz>
+            <iyy>13.496294</iyy>
+            <iyz>-0.0</iyz>
+            <izz>21.038002</izz>
+          </inertia>     
+      </inertial>
+
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>    
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/base_link.stl</uri>
+            <name>Gazebo/Red</name>
+          </script>
+          <ambient>1.0 0.0 0.0 1.0</ambient>
+        </material>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.05</mu>
+              <mu2>0.05</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/base_link.stl</uri>
+            <name>Gazebo/Red</name>
+          </script>
+          <ambient>1.0 0.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="steering_front_left_joint" type="revolute">
+      <pose relative_to='base_link'>0.3 0.25 0.15 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>steering_front_left_link_1</child>  
+      <axis>
+        <xyz>0.0 0.0 1.0</xyz>
+        <limit>
+          <lower>-2.1</lower>
+          <upper>2.1</upper>
+          <effort>5</effort>
+          <velocity>6.28</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.005</damping>
+          <friction>0.02</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="steering_front_left_link_1">
+      <pose relative_to='steering_front_left_joint'>0 0 0 0 -0 0</pose>  
+      <inertial>
+        <pose>-0.002154973883960132 0.029325881673029908 -0.05340557293320429 0 0 0</pose>
+        <mass>2.725786674997393</mass>
+        <inertia>
+          <ixx>0.00963</ixx>
+          <ixy>0.000255</ixy>
+          <ixz>6e-05</ixz>
+          <iyy>0.010207</iyy>
+          <iyz>0.002216</iyz>
+          <izz>0.005039</izz>
+        </inertia>
+      </inertial> 
+      <collision name='steering_front_left_link_1_collision'>
+        <pose>-0.3 -0.25 -0.15 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/steering_front_left_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/steering_front_left_link_1.stl</uri>
+            <name>Gazebo/Green</name>
+          </script>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+        </material>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.05</mu>
+              <mu2>0.05</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>  
+      <visual name='steering_front_left_link_1_visual'>
+        <pose>-0.3 -0.25 -0.15 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/steering_front_left_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/steering_front_left_link_1.stl</uri>
+            <name>Gazebo/Green</name>
+          </script>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+      <self_collide>0</self_collide>
+    </link>
+
+    <joint name="wheel_front_left_joint" type="revolute">
+      <pose relative_to='steering_front_left_link_1'>0.002084 0.066305 -0.139197 0 0 0</pose>
+      <parent>steering_front_left_link_1</parent>
+      <child>wheel_front_left_link_1</child>
+      <axis>
+        <xyz>0.0 1.0 0.0</xyz>
+        <limit>
+          <effort>1.5</effort>
+          <velocity>20</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.005</damping>
+          <friction>0.02</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="wheel_front_left_link_1">
+      <pose relative_to='wheel_front_left_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.0010516484363755074 -0.070148198176882 -0.00015464096777558986 0 0 0</pose>
+        <mass>7.520468284756858</mass>
+        <inertia>
+          <ixx>0.012445</ixx>
+          <ixy>1.3e-05</ixy>
+          <ixz>-0.0</ixz>
+          <iyy>0.021216</iyy>
+          <iyz>-0.0</iyz>
+          <izz>0.012445</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_front_left_link_1_collision'>
+        <pose>-0.302084 -0.316305 -0.010803 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/wheel_front_left_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/wheel_front_left_link_1.stl</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+        </material>
+      </collision>
+      <visual name='wheel_front_left_link_1_visual'>
+        <pose>-0.302084 -0.316305 -0.010803 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/wheel_front_left_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/wheel_front_left_link_1.stl</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="steering_front_right_joint" type="revolute">
+      <pose relative_to='base_link'>0.3 -0.25 0.15 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>steering_front_right_link_1</child>
+      <axis>
+        <xyz>0.0 0.0 1.0</xyz>
+        <limit>
+          <lower>-2.1</lower>
+          <upper>2.1</upper>
+          <effort>5</effort>
+          <velocity>6.28</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.005</damping>
+          <friction>0.02</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="steering_front_right_link_1">
+      <pose relative_to='steering_front_right_joint'>0 0 0 0 -0 0</pose>  
+      <inertial>
+        <pose>-0.002154975530284542 -0.029325882748917065 -0.053405570351621384 0 0 0</pose>
+        <mass>2.7257867924470394</mass>
+        <inertia>
+          <ixx>0.00963</ixx>
+          <ixy>-0.000255</ixy>
+          <ixz>6e-05</ixz>
+          <iyy>0.010207</iyy>
+          <iyz>-0.002216</iyz>
+          <izz>0.005039</izz>
+        </inertia>
+      </inertial>
+      <collision name='steering_front_right_link_1_collision'>
+        <pose>-0.3 0.25 -0.15 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/steering_front_right_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/steering_front_right_link_1.stl</uri>
+            <name>Gazebo/Green</name>
+          </script>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+        </material>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.05</mu>
+              <mu2>0.05</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='steering_front_right_link_1_visual'>
+        <pose>-0.3 0.25 -0.15 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/steering_front_right_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/steering_front_right_link_1.stl</uri>
+            <name>Gazebo/Green</name>
+          </script>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+      <self_collide>0</self_collide>
+    </link>
+
+    <joint name="wheel_front_right_joint" type="revolute">
+      <pose relative_to='steering_front_right_link_1'>0.002085 -0.066351 -0.139197 0 0 0</pose>
+      <parent>steering_front_right_link_1</parent>
+      <child>wheel_front_right_link_1</child>
+      <axis>
+        <xyz>0.0 1.0 0.0</xyz>
+        <limit>
+          <effort>1.5</effort>
+          <velocity>20</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.005</damping>
+          <friction>0.02</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="wheel_front_right_link_1">
+      <pose relative_to='wheel_front_right_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.0010510184097267117 0.07014771329558 -0.00015495520707122998 0 0 0</pose>
+        <mass>7.520481495384261</mass>
+        <inertia>
+          <ixx>0.012446</ixx>
+          <ixy>-1.3e-05</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.021217</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.012445</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_front_right_link_1_collision'>
+        <pose>-0.302085 0.316351 -0.010803 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/wheel_front_right_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/wheel_front_right_link_1.stl</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+        </material>
+      </collision>
+      <visual name='wheel_front_right_link_1_visual'>
+        <pose>-0.302085 0.316351 -0.010803 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/wheel_front_right_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/wheel_front_right_link_1.stl</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="steering_rear_left_joint" type="revolute">
+      <pose relative_to='base_link'>-0.3 0.25 0.15 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>steering_rear_left_link_1</child>
+      <axis>
+        <xyz>0.0 0.0 1.0</xyz>
+        <limit>
+          <lower>-2.1</lower>
+          <upper>2.1</upper>
+          <effort>5</effort>
+          <velocity>6.28</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.005</damping>
+          <friction>0.02</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="steering_rear_left_link_1">
+      <pose relative_to='steering_rear_left_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.0021549732313028702 0.029325881245285235 -0.05340557292901292 0 0 0</pose>
+        <mass>2.725786615393923</mass>
+        <inertia>
+          <ixx>0.00963</ixx>
+          <ixy>-0.000255</ixy>
+          <ixz>-6e-05</ixz>
+          <iyy>0.010207</iyy>
+          <iyz>0.002216</iyz>
+          <izz>0.005039</izz>
+        </inertia>
+      </inertial>
+      <collision name='steering_rear_left_link_1_collision'>
+        <pose>0.3 -0.25 -0.15 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/steering_rear_left_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/steering_rear_left_link_1.stl</uri>
+            <name>Gazebo/Green</name>
+          </script>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+        </material>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.05</mu>
+              <mu2>0.05</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='steering_rear_left_link_1_visual'>
+        <pose>0.3 -0.25 -0.15 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/steering_rear_left_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/steering_rear_left_link_1.stl</uri>
+            <name>Gazebo/Green</name>
+          </script>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="wheel_rear_left_joint" type="revolute">
+      <pose relative_to='steering_rear_left_link_1'>-0.002084 0.0663 -0.139197 0 0 0</pose>
+      <parent>steering_rear_left_link_1</parent>
+      <child>wheel_rear_left_link_1</child>
+      <axis>
+        <xyz>0.0 1.0 0.0</xyz>
+        <limit>
+          <effort>1.5</effort>
+          <velocity>20</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.005</damping>
+          <friction>0.02</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="wheel_rear_left_link_1">
+      <pose relative_to='wheel_rear_left_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0010517287062624114 -0.0701484724958567 -0.00015489301004372596 0 0 0</pose>
+        <mass>7.520410979673579</mass>
+        <inertia>
+          <ixx>0.012445</ixx>
+          <ixy>-1.3e-05</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.021216</iyy>
+          <iyz>-0.0</iyz>
+          <izz>0.012445</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_rear_left_link_1_collision'>
+        <pose>0.302084 -0.3163 -0.010803 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/wheel_rear_left_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/wheel_rear_left_link_1.stl</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+        </material>
+      </collision>
+      <visual name='wheel_rear_left_link_1_visual'>
+        <pose>0.302084 -0.3163 -0.010803 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/wheel_rear_left_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/wheel_rear_left_link_1.stl</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="steering_rear_right_joint" type="revolute">
+      <pose relative_to='base_link'>-0.3 -0.25 0.15 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>steering_rear_right_link_1</child>
+      <axis>
+        <xyz>0.0 0.0 1.0</xyz>
+        <limit>
+          <lower>-2.1</lower>
+          <upper>2.1</upper>
+          <effort>5</effort>
+          <velocity>6.28</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.005</damping>
+          <friction>0.02</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="steering_rear_right_link_1">
+      <pose relative_to='steering_rear_right_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.002154976007408882 -0.0293258829083054 -0.05340557305434568 0 0 0</pose>
+        <mass>2.7257867677183323</mass>
+        <inertia>
+          <ixx>0.00963</ixx>
+          <ixy>0.000255</ixy>
+          <ixz>-6e-05</ixz>
+          <iyy>0.010207</iyy>
+          <iyz>-0.002216</iyz>
+          <izz>0.005039</izz>
+        </inertia>
+      </inertial>
+      <collision name='steering_rear_right_link_1_collision'>
+        <pose>0.3 0.25 -0.15 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/steering_rear_right_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/steering_rear_right_link_1.stl</uri>
+            <name>Gazebo/Green</name>
+          </script>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+        </material>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.05</mu>
+              <mu2>0.05</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='steering_rear_right_link_1_visual'>
+        <pose>0.3 0.25 -0.15 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/steering_rear_right_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/steering_rear_right_link_1.stl</uri>
+            <name>Gazebo/Green</name>
+          </script>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="wheel_rear_right_joint" type="revolute">
+      <pose relative_to='steering_rear_right_link_1'>-0.002085 -0.06638 -0.139197 0 - 0</pose>
+      <parent>steering_rear_right_link_1</parent>
+      <child>wheel_rear_right_link_1</child>
+      <axis>
+        <xyz>0.0 1.0 0.0</xyz>
+        <limit>
+          <effort>1.5</effort>
+          <velocity>20</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.005</damping>
+          <friction>0.02</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="wheel_rear_right_link_1">
+      <pose relative_to='wheel_rear_right_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0.001050888297434771 0.07014892128100272 -0.00015447191071956377 0 0 0</pose>
+        <mass>7.520363690354945</mass>
+        <inertia>
+          <ixx>0.012445</ixx>
+          <ixy>1.3e-05</ixy>
+          <ixz>-0.0</ixz>
+          <iyy>0.021216</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.012445</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_rear_right_link_1_collision'>
+        <pose>0.302085 0.31638 -0.010803 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/wheel_rear_right_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/wheel_rear_right_link_1.stl</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+        </material>
+      </collision>
+      <visual name='wheel_rear_right_link_1_visual'>
+        <pose>0.302085 0.31638 -0.010803 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://robot_swerve/meshes/wheel_rear_right_link_1.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://robot_swerve/meshes/wheel_rear_right_link_1.stl</uri>
+            <name>Gazebo/Yellow</name>
+          </script>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <!-- lidar_link -->
+
+    <joint name="lidar_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>lidar_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+
+    <link name="lidar_link">    
+      <inertial>
+        <pose>0 0 0.25 0 0 0</pose>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.001</izz>
+        </inertia>
+        <mass>0.114</mass>
+      </inertial>
+
+      <collision name="lidar_link_collision">
+        <pose>0 0 0.25 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.055</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Cyan</name>
+          </script>
+          <ambient>0.0 1.0 1.0 1.0</ambient>
+        </material>
+      </collision>
+
+      <visual name="lidar_link_visual">
+        <pose>0 0 0.25 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Cyan</name>
+          </script>
+          <ambient>0.0 1.0 1.0 1.0</ambient>
+        </material>
+      </visual>
+
+      <sensor name="lidar" type="ray">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <pose>0 0 0.28 0 0 0</pose>
+        <update_rate>5</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1.000000</resolution>
+              <min_angle>0.000000</min_angle>
+              <max_angle>6.280000</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.120000</min>
+            <max>3.5</max>
+            <resolution>0.015000</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+        <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+          <ros>
+            <!-- <namespace>/tb3</namespace> -->
+            <remapping>~/out:=scan</remapping>
+          </ros>
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <frame_name>lidar_link</frame_name>
+        </plugin>
+      </sensor>
+    </link>
+
+  <!-- *********************** GPS SETUP *********************************  -->
+  <joint name="gps_joint" type="fixed">
+    <parent>lidar_link</parent>
+    <child>gps_link</child>
+    <pose>0 0 0 0 0 0</pose>
+  </joint> 
+
+
+  <link name="gps_link">
+    <inertial>
+      <pose>0 0 0.32 0 0 0</pose>
+      <inertia>
+        <ixx>0.001</ixx>
+        <ixy>0.000</ixy>
+        <ixz>0.000</ixz>
+        <iyy>0.001</iyy>
+        <iyz>0.000</iyz>
+        <izz>0.001</izz>
+      </inertia>
+      <mass>0.114</mass>
+    </inertial>
+
+    <collision name="gps_link_collision">
+      <pose>0 0 0.32 0 0 0</pose>
+      <geometry>
+        <cylinder>
+          <radius>0.02</radius>
+          <length>0.07</length>
+        </cylinder>
+      </geometry>
+      <material>
+        <script>
+          <name>Gazebo/White</name>
+        </script>
+        <ambient>1.0 1.0 1.0 1.0</ambient>
+      </material>
+    </collision>
+
+    <visual name="gps_link_visual">
+      <pose>0 0 0.32 0 0 0</pose>
+      <geometry>
+        <cylinder>
+          <radius>0.02</radius>
+          <length>0.07</length>
+        </cylinder>
+      </geometry>
+      <material>
+        <script>
+          <name>Gazebo/White</name>
+        </script>
+        <ambient>1.0 1.0 1.0 1.0</ambient>
+      </material>
+    </visual>
+
+    <sensor name="bmb_gps" type="gps">
+      <always_on>true</always_on>
+      <update_rate>10.0</update_rate>
+      <pose>0 0 0.5 0 0 0</pose>
+      <gps>
+        <position_sensing>
+          <horizontal>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1e-2</stddev>
+            </noise>
+          </horizontal>
+          <vertical>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1</stddev>
+            </noise>
+          </vertical>
+        </position_sensing>
+      </gps>
+      <plugin name="gps_swever" filename="libgazebo_ros_gps_sensor.so">
+        <ros>
+          <remapping>~/out:=gps/fix</remapping>
+        </ros>
+      </plugin>
+    </sensor>
+  </link>
+
+
+  <!-- *********************** IMU SENSOR SETUP **************************  -->
+
+  <joint name="imu_joint" type="fixed">
+    <parent>base_link</parent>
+    <child>imu_link</child>
+    <pose>0 0 0 0 0 0</pose>
+  </joint>  
+
+
+  <link name="imu_link">
+    <gravity>true</gravity>
+    <sensor name="bmb_imu" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <imu>
+        <orientation>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-3</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-3</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-3</stddev>
+            </noise>
+          </z>
+        </orientation>
+        <angular_velocity>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu>
+      <plugin name="swerve_imu" filename="libgazebo_ros_imu_sensor.so">
+        <initial_orientation_as_reference>false</initial_orientation_as_reference>
+        <frame_name>imu_link</frame_name>
+        <ros>
+          <namespace>/imu</namespace>
+          <remapping>~/out:=data</remapping>
+        </ros>
+      </plugin>
+    </sensor>
+  </link>
+
+  <!-- *********************** CAMERA SENSOR SETUP **************************  -->
+
+    <joint name="camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>camera_link</child>
+      <pose>0.30 0 0.24 0 0 0</pose>
+    </joint>
+
+    <link name="camera_link">
+      <inertial>
+        <pose>0.30 0 0.24 0 0 0</pose>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.000</ixy>
+          <ixz>0.000</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.000</iyz>
+          <izz>0.001</izz>
+        </inertia>
+        <mass>0.035</mass>
+      </inertial>
+
+      <collision name="camera_link_collision">
+        <pose>0.30 0 0.24 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.02 0.07 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+          </script>
+          <ambient>0.0 0.0 0.0 1.0</ambient>
+        </material>
+      </collision>
+
+      <visual name="camera_link_visual">
+        <pose>0.30 0 0.24 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.02 0.07 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+          </script>
+          <ambient>0.0 0.0 0.0 1.0</ambient>
+        </material>
+      </visual>
+
+      <sensor name="camera" type="camera">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>30</update_rate>
+        <pose>0.30 0 0.24 0 0 0</pose>
+        <camera name="picam">
+          <horizontal_fov>1.085595</horizontal_fov>
+          <image>
+              <width>480</width>
+              <height>320</height>
+              <format>R8G8B8</format>
+          </image>
+          <clip>
+              <near>0.03</near>
+              <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+          <plugin name="camera_driver" filename="libgazebo_ros_camera.so">
+            <ros>
+              <namespace>test_cam</namespace>
+              <remapping>image_raw:=image_demo</remapping>
+              <remapping>camera_info:=camera_info_demo</remapping>
+            </ros>
+            <frame_name>camera_link</frame_name>   
+          </plugin>
+      </sensor>
+    </link>    
+
+
+    <static>0</static>
+
+    <plugin name="four_ws_robot_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+          <remapping>~/out:=joint_states</remapping>
+      </ros>
+      <update_rate>30</update_rate>
+      <joint_name>wheel_front_left_joint</joint_name>
+      <joint_name>wheel_front_right_joint</joint_name>
+      <joint_name>wheel_rear_left_joint</joint_name>
+      <joint_name>wheel_rear_right_joint</joint_name>
+      <joint_name>steering_front_left_joint</joint_name>
+      <joint_name>steering_front_right_joint</joint_name>
+      <joint_name>steering_rear_left_joint</joint_name>
+      <joint_name>steering_rear_right_joint</joint_name>
+    </plugin>
+
+<ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    
+    <joint name="wheel_front_left_joint">
+      <command_interface name="velocity">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="wheel_front_right_joint">
+      <command_interface name="velocity">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="wheel_rear_left_joint">
+      <command_interface name="velocity">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="wheel_rear_right_joint">
+      <command_interface name="velocity">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="steering_front_left_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="steering_front_right_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="steering_rear_left_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="steering_rear_right_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <!-- <parameters>/home/thanhkz/ROS2/swerve_ws/install/robot_swerve_description/share/robot_swerve_description/models/robot_swerve/config/controllers.yaml</parameters> -->
+      <parameters>/home/thanhkz/ROS2/swerve_ws/install/robot_swerve_description/share/robot_swerve_description/models/robot_swerve/config/sim_controllers.yaml</parameters>
+    </plugin>
+
+
+
+  </model>
+</sdf>
