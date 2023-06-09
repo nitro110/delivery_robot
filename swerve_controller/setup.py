@@ -45,7 +45,7 @@ setup(
     maintainer_email=maintainer_email,
     description=description,
     license=license,
-    tests_require=[],
+    tests_require=['pytest'],
     entry_points={
         "console_scripts": scripts,
     },
