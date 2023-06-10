@@ -21,16 +21,22 @@ class ros_send_serial(Node):
         self.subscription  # prevent unused variable warning
 
     def ros_send_serial_callback(self, msg):
-        linear_x=msg.linear.x
+        linear_x=struct.pack('f',msg.linear.x) #convert to bytes
         linear_y=msg.linear.y
         angular_z=msg.angular.z
-        serialPort.write(b"$")
-        serialPort.write(b"%f",linear_x)
-        serialPort.write(b"%f",linear_y)
-        serialPort.write(b"%f",angular_z)
 
-        ser=serialPort.readline()
+        send_decode=struct.unpack('f',linear_x)
+        self.get_logger().info('I send: "%s"' % linear_x)
+
+        serialPort.write(b'$')
+        serialPort.write(linear_x)
+        #serialPort.write(b"%f",linear_y)
+        #serialPort.write(b"%f",angular_z)
+
+        ser=serialPort.read(4)
+        ser_decode=ser.decode('utf-8')
         self.get_logger().info('I heard: "%s"' % ser)
+        self.get_logger().info('decode to: "%s"' % ser_decode)
 
         time.sleep(1)
         serialPort.flush()

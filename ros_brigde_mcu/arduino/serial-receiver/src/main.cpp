@@ -1,12 +1,20 @@
 #include <Arduino.h>
 
+union {
+  float f;
+  byte b[4];
+} data;
 
 void setup() {
-  Serial.begin(9600); // initialize serial communication
+  Serial.begin(9600);
 }
+
 void loop() {
-  if (Serial.available() > 0) { // check if data is available
-    String data = Serial.readStringUntil('\n'); // read the incoming data as a string until a newline character is received
-    Serial.println(data); // print the received data
+  if (Serial.available() >= 4) {
+    for (int i = 0; i < 4; i++) {
+      data.b[i] = Serial.read();
+    }
+    Serial.print("Received: ");
+    Serial.println(data.f);
   }
 }
