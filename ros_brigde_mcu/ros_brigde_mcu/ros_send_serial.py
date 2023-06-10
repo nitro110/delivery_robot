@@ -3,8 +3,9 @@ import serial
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 import time
+import struct
 
-serialPort = serial.Serial(port = "/dev/ttyUSB0", baudrate=115200,
+serialPort = serial.Serial(port = "/dev/ttyUSB0", baudrate=9600,
                            bytesize=8, timeout=0)
 
 
@@ -14,7 +15,7 @@ class ros_send_serial(Node):
         super().__init__('ros_send_serial')
         self.subscription = self.create_subscription(
             Twist,
-            'topic',
+            'cmd_vel',
             self.ros_send_serial_callback,
             10)
         self.subscription  # prevent unused variable warning
@@ -23,19 +24,23 @@ class ros_send_serial(Node):
         linear_x=msg.linear.x
         linear_y=msg.linear.y
         angular_z=msg.angular.z
-        serialPort.write('$')
-        serialPort.write(linear_x)
-        serialPort.write(linear_y)
-        serialPort.write(angular_z)
+        serialPort.write(b"$")
+        serialPort.write(b"%f",linear_x)
+        serialPort.write(b"%f",linear_y)
+        serialPort.write(b"%f",angular_z)
+
+        ser=serialPort.readline()
+        self.get_logger().info('I heard: "%s"' % ser)
+
         time.sleep(1)
         serialPort.flush()
 
 def main(args=None):
     rclpy.init(args=args)
 
-    ros_send_serial = ros_send_serial()
+    serial_send = ros_send_serial()
 
-    rclpy.spin(ros_send_serial)
+    rclpy.spin(serial_send)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
