@@ -5,7 +5,7 @@ from geometry_msgs.msg import Twist
 import time
 import struct
 
-serialPort = serial.Serial(port = "/dev/ttyUSB0", baudrate=9600,
+serialPort = serial.Serial(port = "/dev/ttyUSB0", baudrate=115200,
                            bytesize=8, timeout=0)
 
 
@@ -21,20 +21,14 @@ class ros_send_serial(Node):
         self.subscription  # prevent unused variable warning
 
     def ros_send_serial_callback(self, msg):
-        linear_x=struct.pack('cf','$'.encode(), msg.linear.x) #convert to bytes
-        #linear_y=struct.pack('f',msg.linear.y)
-        #angular_z=struct.pack('f',msg.angular.z)
+        linear_x = msg.linear.x #convert to bytes
+        linear_y = msg.linear.y
+        angular_z = msg.angular.z
+        data= struct.pack('cfff', '$'.encode(), linear_x, linear_y, angular_z)
 
-        #send_decode=struct.unpack('f',linear_x)
-        self.get_logger().info('I send: "%s"' % linear_x)
+        #self.get_logger().info('send: "%s"' % data) #for debug
 
-        #serialPort.write(b'$')
-        serialPort.write(linear_x)
-        #serialPort.write(linear_y)
-        #serialPort.write(angular_z)
-        #serialPort.write(b"%f",linear_y)
-        #serialPort.write(b"%f",angular_z)
-
+        serialPort.write(data)
 
         time.sleep(1)
         serialPort.flush()
