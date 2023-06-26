@@ -18,7 +18,7 @@ def generate_launch_description():
     node_send_serial = Node(
         package="ros_brigde_mcu",
         name="ros_send_serial",
-        executable="cmd_vel_serial",
+        executable="serial_com",
     )
 
     ld.add_action(node_send_serial)

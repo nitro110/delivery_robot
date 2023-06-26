@@ -27,8 +27,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [    
-                "sensor_data_publisher = ros_brigde_mcu.ros_read_serial:main",
-                "cmd_vel_serial = ros_brigde_mcu.ros_send_serial:main",   
+                "serial_com = ros_brigde_mcu.ros_send_serial:main",   
         ],
     },
 )
