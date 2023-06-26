@@ -41,7 +41,7 @@
           </script>
           <ambient>1.0 0.0 0.0 1.0</ambient>
         </material>
-        <surface>
+        <!-- <surface>
           <contact>
             <ode/>
           </contact>
@@ -51,7 +51,7 @@
               <mu2>0.05</mu2>
             </ode>
           </friction>
-        </surface>
+        </surface> -->
       </collision>
 
       <visual name='base_link_visual'>
@@ -78,23 +78,23 @@
       <child>steering_front_left_link_1</child>  
       <axis>
         <xyz>0.0 0.0 1.0</xyz>
-        <limit>
+        <!-- <limit>
           <lower>-2.1</lower>
           <upper>2.1</upper>
           <effort>5</effort>
-          <velocity>6.28</velocity>
-        </limit>
-        <dynamics>
+          <velocity>20</velocity>
+        </limit> -->
+        <!-- <dynamics>
           <damping>0.005</damping>
           <friction>0.02</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-        </dynamics>
+        </dynamics> -->
       </axis>
     </joint>
 
     <link name="steering_front_left_link_1">
-      <pose relative_to='steering_front_left_joint'>0 0 0 0 -0 0</pose>  
+      <pose relative_to='steering_front_left_joint'>0 0 0 0 0 0</pose>  
       <inertial>
         <pose>-0.002154973883960132 0.029325881673029908 -0.05340557293320429 0 0 0</pose>
         <mass>2.725786674997393</mass>
@@ -107,6 +107,7 @@
           <izz>0.005039</izz>
         </inertia>
       </inertial> 
+
       <collision name='steering_front_left_link_1_collision'>
         <pose>-0.3 -0.25 -0.15 0 0 0</pose>
         <geometry>
@@ -122,7 +123,7 @@
           </script>
           <ambient>0.0 1.0 0.0 1.0</ambient>
         </material>
-        <surface>
+        <!-- <surface>
           <contact>
             <ode/>
           </contact>
@@ -132,8 +133,9 @@
               <mu2>0.05</mu2>
             </ode>
           </friction>
-        </surface>
+        </surface> -->
       </collision>  
+
       <visual name='steering_front_left_link_1_visual'>
         <pose>-0.3 -0.25 -0.15 0 0 0</pose>
         <geometry>
@@ -150,7 +152,8 @@
           <ambient>0.0 1.0 0.0 1.0</ambient>
         </material>
       </visual>
-      <self_collide>0</self_collide>
+
+      <!-- <self_collide>0</self_collide> -->
     </link>
 
     <joint name="wheel_front_left_joint" type="revolute">
@@ -159,18 +162,18 @@
       <child>wheel_front_left_link_1</child>
       <axis>
         <xyz>0.0 1.0 0.0</xyz>
-        <limit>
+        <!-- <limit>
           <effort>1.5</effort>
           <velocity>20</velocity>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
-        </limit>
-        <dynamics>
+        </limit> -->
+        <!-- <dynamics>
           <damping>0.005</damping>
           <friction>0.02</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-        </dynamics>
+        </dynamics> -->
       </axis>
     </joint>
 
@@ -188,6 +191,7 @@
           <izz>0.012445</izz>
         </inertia>
       </inertial>
+
       <collision name='wheel_front_left_link_1_collision'>
         <pose>-0.302084 -0.316305 -0.010803 0 0 0</pose>
         <geometry>
@@ -204,6 +208,7 @@
           <ambient>1.0 1.0 0.0 1.0</ambient>
         </material>
       </collision>
+
       <visual name='wheel_front_left_link_1_visual'>
         <pose>-0.302084 -0.316305 -0.010803 0 0 0</pose>
         <geometry>
@@ -228,18 +233,18 @@
       <child>steering_front_right_link_1</child>
       <axis>
         <xyz>0.0 0.0 1.0</xyz>
-        <limit>
+        <!-- <limit>
           <lower>-2.1</lower>
           <upper>2.1</upper>
           <effort>5</effort>
-          <velocity>6.28</velocity>
-        </limit>
-        <dynamics>
+          <velocity>20</velocity>
+        </limit> -->
+        <!-- <dynamics>
           <damping>0.005</damping>
           <friction>0.02</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-        </dynamics>
+        </dynamics> -->
       </axis>
     </joint>
 
@@ -257,6 +262,7 @@
           <izz>0.005039</izz>
         </inertia>
       </inertial>
+
       <collision name='steering_front_right_link_1_collision'>
         <pose>-0.3 0.25 -0.15 0 0 0</pose>
         <geometry>
@@ -272,7 +278,7 @@
           </script>
           <ambient>0.0 1.0 0.0 1.0</ambient>
         </material>
-        <surface>
+        <!-- <surface>
           <contact>
             <ode/>
           </contact>
@@ -282,8 +288,9 @@
               <mu2>0.05</mu2>
             </ode>
           </friction>
-        </surface>
+        </surface> -->
       </collision>
+
       <visual name='steering_front_right_link_1_visual'>
         <pose>-0.3 0.25 -0.15 0 0 0</pose>
         <geometry>
@@ -300,7 +307,7 @@
           <ambient>0.0 1.0 0.0 1.0</ambient>
         </material>
       </visual>
-      <self_collide>0</self_collide>
+      <!-- <self_collide>0</self_collide> -->
     </link>
 
     <joint name="wheel_front_right_joint" type="revolute">
@@ -309,18 +316,18 @@
       <child>wheel_front_right_link_1</child>
       <axis>
         <xyz>0.0 1.0 0.0</xyz>
-        <limit>
+        <!-- <limit>
           <effort>1.5</effort>
           <velocity>20</velocity>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
-        </limit>
-        <dynamics>
+        </limit> -->
+        <!-- <dynamics>
           <damping>0.005</damping>
           <friction>0.02</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-        </dynamics>
+        </dynamics> -->
       </axis>
     </joint>
 
@@ -338,6 +345,7 @@
           <izz>0.012445</izz>
         </inertia>
       </inertial>
+
       <collision name='wheel_front_right_link_1_collision'>
         <pose>-0.302085 0.316351 -0.010803 0 0 0</pose>
         <geometry>
@@ -354,6 +362,7 @@
           <ambient>1.0 1.0 0.0 1.0</ambient>
         </material>
       </collision>
+
       <visual name='wheel_front_right_link_1_visual'>
         <pose>-0.302085 0.316351 -0.010803 0 0 0</pose>
         <geometry>
@@ -378,18 +387,18 @@
       <child>steering_rear_left_link_1</child>
       <axis>
         <xyz>0.0 0.0 1.0</xyz>
-        <limit>
+        <!-- <limit>
           <lower>-2.1</lower>
           <upper>2.1</upper>
           <effort>5</effort>
-          <velocity>6.28</velocity>
-        </limit>
-        <dynamics>
+          <velocity>20</velocity>
+        </limit> -->
+        <!-- <dynamics>
           <damping>0.005</damping>
           <friction>0.02</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-        </dynamics>
+        </dynamics> -->
       </axis>
     </joint>
 
@@ -407,6 +416,7 @@
           <izz>0.005039</izz>
         </inertia>
       </inertial>
+
       <collision name='steering_rear_left_link_1_collision'>
         <pose>0.3 -0.25 -0.15 0 0 0</pose>
         <geometry>
@@ -422,7 +432,7 @@
           </script>
           <ambient>0.0 1.0 0.0 1.0</ambient>
         </material>
-        <surface>
+        <!-- <surface>
           <contact>
             <ode/>
           </contact>
@@ -432,8 +442,9 @@
               <mu2>0.05</mu2>
             </ode>
           </friction>
-        </surface>
+        </surface> -->
       </collision>
+
       <visual name='steering_rear_left_link_1_visual'>
         <pose>0.3 -0.25 -0.15 0 0 0</pose>
         <geometry>
@@ -458,18 +469,18 @@
       <child>wheel_rear_left_link_1</child>
       <axis>
         <xyz>0.0 1.0 0.0</xyz>
-        <limit>
+        <!-- <limit>
           <effort>1.5</effort>
           <velocity>20</velocity>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
-        </limit>
-        <dynamics>
+        </limit> -->
+        <!-- <dynamics>
           <damping>0.005</damping>
           <friction>0.02</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-        </dynamics>
+        </dynamics> -->
       </axis>
     </joint>
 
@@ -487,6 +498,7 @@
           <izz>0.012445</izz>
         </inertia>
       </inertial>
+
       <collision name='wheel_rear_left_link_1_collision'>
         <pose>0.302084 -0.3163 -0.010803 0 0 0</pose>
         <geometry>
@@ -503,6 +515,7 @@
           <ambient>1.0 1.0 0.0 1.0</ambient>
         </material>
       </collision>
+
       <visual name='wheel_rear_left_link_1_visual'>
         <pose>0.302084 -0.3163 -0.010803 0 0 0</pose>
         <geometry>
@@ -527,18 +540,18 @@
       <child>steering_rear_right_link_1</child>
       <axis>
         <xyz>0.0 0.0 1.0</xyz>
-        <limit>
+        <!-- <limit>
           <lower>-2.1</lower>
           <upper>2.1</upper>
           <effort>5</effort>
-          <velocity>6.28</velocity>
-        </limit>
-        <dynamics>
+          <velocity>20</velocity>
+        </limit> -->
+        <!-- <dynamics>
           <damping>0.005</damping>
           <friction>0.02</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-        </dynamics>
+        </dynamics> -->
       </axis>
     </joint>
 
@@ -556,6 +569,7 @@
           <izz>0.005039</izz>
         </inertia>
       </inertial>
+
       <collision name='steering_rear_right_link_1_collision'>
         <pose>0.3 0.25 -0.15 0 0 0</pose>
         <geometry>
@@ -571,7 +585,7 @@
           </script>
           <ambient>0.0 1.0 0.0 1.0</ambient>
         </material>
-        <surface>
+        <!-- <surface>
           <contact>
             <ode/>
           </contact>
@@ -581,8 +595,9 @@
               <mu2>0.05</mu2>
             </ode>
           </friction>
-        </surface>
+        </surface> -->
       </collision>
+
       <visual name='steering_rear_right_link_1_visual'>
         <pose>0.3 0.25 -0.15 0 0 0</pose>
         <geometry>
@@ -602,23 +617,23 @@
     </link>
 
     <joint name="wheel_rear_right_joint" type="revolute">
-      <pose relative_to='steering_rear_right_link_1'>-0.002085 -0.06638 -0.139197 0 - 0</pose>
+      <pose relative_to='steering_rear_right_link_1'>-0.002085 -0.06638 -0.139197 0 0 0</pose>
       <parent>steering_rear_right_link_1</parent>
       <child>wheel_rear_right_link_1</child>
       <axis>
         <xyz>0.0 1.0 0.0</xyz>
-        <limit>
+        <!-- <limit>
           <effort>1.5</effort>
           <velocity>20</velocity>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
-        </limit>
-        <dynamics>
+        </limit> -->
+        <!-- <dynamics>
           <damping>0.005</damping>
           <friction>0.02</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
-        </dynamics>
+        </dynamics> -->
       </axis>
     </joint>
 
@@ -636,6 +651,7 @@
           <izz>0.012445</izz>
         </inertia>
       </inertial>
+
       <collision name='wheel_rear_right_link_1_collision'>
         <pose>0.302085 0.31638 -0.010803 0 0 0</pose>
         <geometry>
@@ -652,6 +668,7 @@
           <ambient>1.0 1.0 0.0 1.0</ambient>
         </material>
       </collision>
+
       <visual name='wheel_rear_right_link_1_visual'>
         <pose>0.302085 0.31638 -0.010803 0 0 0</pose>
         <geometry>
@@ -1045,8 +1062,8 @@
     
     <joint name="wheel_front_left_joint">
       <command_interface name="velocity">
-        <param name="min">-3.14</param>
-        <param name="max">3.14</param>
+        <param name="min">-20</param>
+        <param name="max">20</param>
       </command_interface>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
@@ -1054,8 +1071,8 @@
 
     <joint name="wheel_front_right_joint">
       <command_interface name="velocity">
-        <param name="min">-3.14</param>
-        <param name="max">3.14</param>
+        <param name="min">-20</param>
+        <param name="max">20</param>
       </command_interface>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
@@ -1063,8 +1080,8 @@
 
     <joint name="wheel_rear_left_joint">
       <command_interface name="velocity">
-        <param name="min">-3.14</param>
-        <param name="max">3.14</param>
+        <param name="min">-20</param>
+        <param name="max">20</param>
       </command_interface>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
@@ -1072,8 +1089,8 @@
 
     <joint name="wheel_rear_right_joint">
       <command_interface name="velocity">
-        <param name="min">-3.14</param>
-        <param name="max">3.14</param>
+        <param name="min">-20</param>
+        <param name="max">20</param>
       </command_interface>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
@@ -1081,8 +1098,8 @@
 
     <joint name="steering_front_left_joint">
       <command_interface name="position">
-        <param name="min">-3.14</param>
-        <param name="max">3.14</param>
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
       </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -1091,8 +1108,8 @@
 
     <joint name="steering_front_right_joint">
       <command_interface name="position">
-        <param name="min">-3.14</param>
-        <param name="max">3.14</param>
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
       </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -1101,8 +1118,8 @@
 
     <joint name="steering_rear_left_joint">
       <command_interface name="position">
-        <param name="min">-3.14</param>
-        <param name="max">3.14</param>
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
       </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -1111,8 +1128,8 @@
 
     <joint name="steering_rear_right_joint">
       <command_interface name="position">
-        <param name="min">-3.14</param>
-        <param name="max">3.14</param>
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
       </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -1120,12 +1137,9 @@
     </joint>
   </ros2_control>
 
-    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-      <!-- <parameters>/home/thanhkz/ROS2/swerve_ws/install/robot_swerve_description/share/robot_swerve_description/models/robot_swerve/config/controllers.yaml</parameters> -->
-      <parameters>/home/thanhkz/ROS2/swerve_ws/install/robot_swerve_description/share/robot_swerve_description/models/robot_swerve/config/sim_controllers.yaml</parameters>
-    </plugin>
-
-
+  <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+    <parameters>/home/thanhkz/ROS2/original_ws/install/robot_swerve_description/share/robot_swerve_description/models/robot_swerve/config/sim_controllers.yaml</parameters>
+  </plugin>
 
   </model>
 </sdf>

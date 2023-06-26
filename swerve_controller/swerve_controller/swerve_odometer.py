@@ -54,7 +54,7 @@ class SwerveOdometer(Node):
     BASE_FRAME: Final[str] = "base_link"
     WHEEL_ODOM_TOPIC: Final[str] = "/odom/wheel"
     JOINT_STATES_TOPIC: Final[str] = "/joint_states"
-    ODOM_PUB_FREQ: Final[float] = 30.0
+    ODOM_PUB_FREQ: Final[float] = 60.0
     NUM_ACTUATORS: Final[int] = 8
     NUM_STATE: Final[int] = 3  # vx, vy, vyaw
 
