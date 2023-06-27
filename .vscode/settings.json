@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/lav2000/dev_ws/build/swerve_controller",
+        "/home/lav2000/dev_ws/install/swerve_controller/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/lav2000/dev_ws/build/swerve_controller",
+        "/home/lav2000/dev_ws/install/swerve_controller/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}

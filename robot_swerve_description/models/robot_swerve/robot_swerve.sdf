@@ -1138,7 +1138,7 @@
   </ros2_control>
 
   <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-    <parameters>/home/thanhkz/ROS2/original_ws/install/robot_swerve_description/share/robot_swerve_description/models/robot_swerve/config/sim_controllers.yaml</parameters>
+    <parameters>/home/lav2000/dev_ws/install/robot_swerve_description/share/robot_swerve_description/models/robot_swerve/config/sim_controllers.yaml</parameters>
   </plugin>
 
   </model>

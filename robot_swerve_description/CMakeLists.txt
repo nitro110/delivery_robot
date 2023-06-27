@@ -44,6 +44,7 @@ set(dependencies
 
 install(
   DIRECTORY
+    description
     launch
     meshes
     urdf
