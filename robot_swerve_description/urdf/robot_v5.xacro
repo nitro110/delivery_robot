@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+<robot name="robot_v5" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robot_swerve_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robot_swerve_description)/urdf/robot_v5.trans" />
+<xacro:include filename="$(find robot_swerve_description)/urdf/robot_v5.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-1.7560433548719815e-16 -1.1706955699146543e-16 0.16007682828480888" rpy="0 0 0"/>
+    <mass value="312.2452326040869"/>
+    <inertia ixx="10.489644" iyy="13.496294" izz="21.038002" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/base_link.STL" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/base_link.STL" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hoder_front_right_link_1">
+  <inertial>
+    <origin xyz="-0.002154975530284542 -0.029325882748917065 -0.053405570351621384" rpy="0 0 0"/>
+    <mass value="2.7257867924470394"/>
+    <inertia ixx="0.00963" iyy="0.010207" izz="0.005039" ixy="-0.000255" iyz="-0.002216" ixz="6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.3 0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/hoder_front_right_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.3 0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/hoder_front_right_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_front_right_link_1">
+  <inertial>
+    <origin xyz="0.0010510184097267117 0.07014771329558 -0.00015495520707122998" rpy="0 0 0"/>
+    <mass value="7.520515873689423"/>
+    <inertia ixx="0.012446" iyy="0.021217" izz="0.012445" ixy="-1.3e-05" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.302085 0.316351 -0.010803" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_front_right_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.302085 0.316351 -0.010803" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_front_right_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hoder_front_left_link_1">
+  <inertial>
+    <origin xyz="-0.002154973883960132 0.029325881673029908 -0.05340557293320429" rpy="0 0 0"/>
+    <mass value="2.725786674997393"/>
+    <inertia ixx="0.00963" iyy="0.010207" izz="0.005039" ixy="0.000255" iyz="0.002216" ixz="6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.3 -0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/hoder_front_left_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.3 -0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/hoder_front_left_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_front_left_link_1">
+  <inertial>
+    <origin xyz="0.0010516484363755074 -0.070148198176882 -0.00015464096777558986" rpy="0 0 0"/>
+    <mass value="7.520468284756858"/>
+    <inertia ixx="0.012445" iyy="0.021216" izz="0.012445" ixy="1.3e-05" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.302084 -0.316305 -0.010803" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_front_left_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.302084 -0.316305 -0.010803" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_front_left_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hoder_back_right_link_1">
+  <inertial>
+    <origin xyz="0.002154976007408882 -0.0293258829083054 -0.05340557305434568" rpy="0 0 0"/>
+    <mass value="2.7257867677183323"/>
+    <inertia ixx="0.00963" iyy="0.010207" izz="0.005039" ixy="0.000255" iyz="-0.002216" ixz="-6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3 0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/hoder_back_right_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3 0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/hoder_back_right_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_back_right_link_1">
+  <inertial>
+    <origin xyz="-0.001050888297434771 0.07014892128100272 -0.00015447191071956377" rpy="0 0 0"/>
+    <mass value="7.520363690354945"/>
+    <inertia ixx="0.012445" iyy="0.021216" izz="0.012445" ixy="1.3e-05" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.302085 0.31638 -0.010803" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_back_right_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.302085 0.31638 -0.010803" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_back_right_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hoder_back_left_link_1">
+  <inertial>
+    <origin xyz="0.0021549732313028702 0.029325881245285235 -0.05340557292901292" rpy="0 0 0"/>
+    <mass value="2.725786615393923"/>
+    <inertia ixx="0.00963" iyy="0.010207" izz="0.005039" ixy="-0.000255" iyz="0.002216" ixz="-6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3 -0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/hoder_back_left_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3 -0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/hoder_back_left_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_back_left_link_1">
+  <inertial>
+    <origin xyz="-0.0010517287062624114 -0.0701484724958567 -0.00015489301004372596" rpy="0 0 0"/>
+    <mass value="7.520410979673579"/>
+    <inertia ixx="0.012445" iyy="0.021216" izz="0.012445" ixy="-1.3e-05" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.302084 -0.3163 -0.010803" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_back_left_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.302084 -0.3163 -0.010803" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robot_swerve_description/meshes/wheel_back_left_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="hoder_front_right_joint" type="continuous">
+  <origin xyz="0.3 -0.25 0.15" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="hoder_front_right_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="wheel_front_right_joint" type="continuous">
+  <origin xyz="0.002085 -0.066351 -0.139197" rpy="0 0 0"/>
+  <parent link="hoder_front_right_link_1"/>
+  <child link="wheel_front_right_link_1"/>
+  <axis xyz="0.001786 -0.999998 0.0"/>
+</joint>
+
+<joint name="hoder_front_left_joint" type="continuous">
+  <origin xyz="0.3 0.25 0.15" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="hoder_front_left_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="wheel_front_left_joint" type="continuous">
+  <origin xyz="0.002084 0.066305 -0.139197" rpy="0 0 0"/>
+  <parent link="hoder_front_left_link_1"/>
+  <child link="wheel_front_left_link_1"/>
+  <axis xyz="-0.001786 -0.999998 -0.0"/>
+</joint>
+
+<joint name="hoder_back_right_joint" type="continuous">
+  <origin xyz="-0.3 -0.25 0.15" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="hoder_back_right_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="wheel_back_right_joint" type="continuous">
+  <origin xyz="-0.002085 -0.06638 -0.139197" rpy="0 0 0"/>
+  <parent link="hoder_back_right_link_1"/>
+  <child link="wheel_back_right_link_1"/>
+  <axis xyz="0.001786 0.999998 -0.0"/>
+</joint>
+
+<joint name="hoder_back_left_joint" type="continuous">
+  <origin xyz="-0.3 0.25 0.15" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="hoder_back_left_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="wheel_back_left_joint" type="continuous">
+  <origin xyz="-0.002084 0.0663 -0.139197" rpy="0 0 0"/>
+  <parent link="hoder_back_left_link_1"/>
+  <child link="wheel_back_left_link_1"/>
+  <axis xyz="-0.001786 0.999998 0.0"/>
+</joint>
+
+</robot>

@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+    <material name="orange">
+        <color rgba="1 0.3 0.1 1"/>
+    </material>
+    <material name="yellow">
+        <color rgba="1 1 0 1"/>
+    </material>
+
+
+<link name="base_link">
+</link>
+
+<joint name="chassis_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="chassis"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <axis xyz="0 0 0"/>
+</joint>
+
+<!-- Base_link -->
+
+<link name="chassis">
+  <inertial>
+    <origin xyz="5.936022825079781e-17 -5.936022825079781e-17 0.12409798810084059" rpy="0 0 0"/>
+    <mass value="615.8064436547418"/>
+    <inertia ixx="19.345247" iyy="22.687421" izz="36.434998" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rl_steer_link_1">
+  <inertial>
+    <origin xyz="0.030419226974774838 -0.030216438274936308 -0.06492036915516279" rpy="0 0 0"/>
+    <mass value="3.8901314961607207"/>
+    <inertia ixx="0.013235" iyy="0.014421" izz="0.00763" ixy="-0.000192" iyz="-0.00214" ixz="0.002047"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.3 0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/rl_steer_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.3 0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/rl_steer_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rl_wheel_link_1">
+  <inertial>
+    <origin xyz="-0.03624203704672452 0.07367773310730899 -1.712957634503881e-07" rpy="0 0 0"/>
+    <mass value="10.284726688276354"/>
+    <inertia ixx="0.02254" iyy="0.030124" izz="0.020115" ixy="-0.004925" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.326756 0.311506 -0.010648" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/rl_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.326756 0.311506 -0.010648" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/rl_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rr_steer_link_1">
+  <inertial>
+    <origin xyz="0.03041922269876568 0.030216437116706962 -0.0649203595957197" rpy="0 0 0"/>
+    <mass value="3.8901312683780422"/>
+    <inertia ixx="0.013235" iyy="0.014421" izz="0.00763" ixy="0.000192" iyz="0.00214" ixz="0.002047"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.3 -0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/rr_steer_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.3 -0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/rr_steer_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rr_wheel_link_1">
+  <inertial>
+    <origin xyz="-0.03624203281156685 -0.07367773430413699 -1.704122321380397e-07" rpy="0 0 0"/>
+    <mass value="10.284728563737865"/>
+    <inertia ixx="0.02254" iyy="0.030124" izz="0.020115" ixy="0.004925" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.326756 -0.311506 -0.010648" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/rr_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.326756 -0.311506 -0.010648" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/rr_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fr_steer_link_1">
+  <inertial>
+    <origin xyz="-0.03041923609172481 0.03021643399173657 -0.06492036146324454" rpy="0 0 0"/>
+    <mass value="3.8901341168222516"/>
+    <inertia ixx="0.013235" iyy="0.014421" izz="0.00763" ixy="-0.000192" iyz="0.00214" ixz="-0.002047"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3 -0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/fr_steer_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3 -0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/fr_steer_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fr_wheel_link_1">
+  <inertial>
+    <origin xyz="0.03624203281156696 -0.07367773430413699 -1.7041223212589662e-07" rpy="0 0 0"/>
+    <mass value="10.284728563737865"/>
+    <inertia ixx="0.02254" iyy="0.030124" izz="0.020115" ixy="-0.004925" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.326756 -0.311506 -0.010648" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/fr_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.326756 -0.311506 -0.010648" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/fr_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fl_steer_link_1">
+  <inertial>
+    <origin xyz="-0.03041922277539022 -0.03021643711078409 -0.06492037892152738" rpy="0 0 0"/>
+    <mass value="3.890132976551786"/>
+    <inertia ixx="0.013235" iyy="0.014421" izz="0.00763" ixy="0.000192" iyz="-0.00214" ixz="-0.002047"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3 0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/fl_steer_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3 0.25 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/fl_steer_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fl_wheel_link_1">
+  <inertial>
+    <origin xyz="0.03624203704672452 0.07367773310730899 -1.712957634503881e-07" rpy="0 0 0"/>
+    <mass value="10.284726688276354"/>
+    <inertia ixx="0.02254" iyy="0.030124" izz="0.020115" ixy="0.004925" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.326756 0.311506 -0.010648" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/fl_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.326756 0.311506 -0.010648" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://delivery_gazebo/meshes/fl_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.3 -0.25 0.15" rpy="0 0 0"/>
+  <parent link="chassis"/>
+  <child link="rl_steer_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="0.026756 -0.061506 -0.139352" rpy="0 0 0"/>
+  <parent link="rl_steer_link_1"/>
+  <child link="rl_wheel_link_1"/>
+  <axis xyz="-0.441333 0.897343 -0.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="0.3 0.25 0.15" rpy="0 0 0"/>
+  <parent link="chassis"/>
+  <child link="rr_steer_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.026756 0.061506 -0.139352" rpy="0 0 0"/>
+  <parent link="rr_steer_link_1"/>
+  <child link="rr_wheel_link_1"/>
+  <axis xyz="-0.441333 -0.897343 -0.0"/>
+</joint>
+
+<joint name="Revolute 5" type="continuous">
+  <origin xyz="-0.3 0.25 0.15" rpy="0 0 0"/>
+  <parent link="chassis"/>
+  <child link="fr_steer_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 6" type="continuous">
+  <origin xyz="-0.026756 0.061506 -0.139352" rpy="0 0 0"/>
+  <parent link="fr_steer_link_1"/>
+  <child link="fr_wheel_link_1"/>
+  <axis xyz="-0.441333 0.897343 -0.0"/>
+</joint>
+
+<joint name="Revolute 7" type="continuous">
+  <origin xyz="-0.3 -0.25 0.15" rpy="0 0 0"/>
+  <parent link="chassis"/>
+  <child link="fl_steer_link_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 8" type="continuous">
+  <origin xyz="-0.026756 -0.061506 -0.139352" rpy="0 0 0"/>
+  <parent link="fl_steer_link_1"/>
+  <child link="fl_wheel_link_1"/>
+  <axis xyz="0.441333 0.897343 0.0"/>
+</joint>
+
+</robot>
