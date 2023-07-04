@@ -1,8 +1,8 @@
 swerve_commander:
   ros__parameters:
-    wheelbase: 0.6
-    wheel_track: 0.5
-    wheel_radius: 0.085
+    wheelbase: 0.6 
+    wheel_track: 0.5  
+    wheel_radius: 0.085  
 swerve_odometer:
   ros__parameters:
     wheelbase: 0.6

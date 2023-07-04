@@ -1,22 +1,20 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <material name="white">
-        <color rgba="1 1 1 1"/>
-    </material>
-    <material name="black">
-        <color rgba="0 0 0 1"/>
-    </material>
-    <material name="orange">
-        <color rgba="1 0.3 0.1 1"/>
-    </material>
-    <material name="yellow">
-        <color rgba="1 1 0 1"/>
-    </material>
-
-
 <link name="base_link">
 </link>
+<!-- BASE_FOOTPRINT LINK -->
+
+<joint name="base_footprint_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<link name="base_footprint">
+</link>
+
+
 
 <joint name="chassis_joint" type="fixed">
   <parent link="base_link"/>
@@ -38,7 +36,7 @@
     <geometry>
       <mesh filename="package://delivery_gazebo/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -47,6 +45,10 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="chassis">
+        <material>Gazebo/Black</material>
+</gazebo>
+
 
 <link name="rl_steer_link_1">
   <inertial>
@@ -59,7 +61,7 @@
     <geometry>
       <mesh filename="package://delivery_gazebo/meshes/rl_steer_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="-0.3 0.25 -0.15" rpy="0 0 0"/>
@@ -68,6 +70,9 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="rl_steer_link_1">
+        <material>Gazebo/Yellow</material>
+</gazebo>
 
 <link name="rl_wheel_link_1">
   <inertial>
@@ -89,6 +94,10 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="rl_wheel_link_1">
+        <mu1 value="1000000.0"/>
+        <mu2 value="1000000.0"/>
+</gazebo>
 
 <link name="rr_steer_link_1">
   <inertial>
@@ -101,7 +110,7 @@
     <geometry>
       <mesh filename="package://delivery_gazebo/meshes/rr_steer_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="-0.3 -0.25 -0.15" rpy="0 0 0"/>
@@ -110,6 +119,9 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="rr_steer_link_1">
+        <material>Gazebo/Yellow</material>
+</gazebo>
 
 <link name="rr_wheel_link_1">
   <inertial>
@@ -131,6 +143,10 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="rr_wheel_link_1">
+        <mu1 value="1000000.0"/>
+        <mu2 value="1000000.0"/>
+</gazebo>
 
 <link name="fr_steer_link_1">
   <inertial>
@@ -143,7 +159,7 @@
     <geometry>
       <mesh filename="package://delivery_gazebo/meshes/fr_steer_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="0.3 -0.25 -0.15" rpy="0 0 0"/>
@@ -152,6 +168,9 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="fr_steer_link_1">
+        <material>Gazebo/Yellow</material>
+</gazebo>
 
 <link name="fr_wheel_link_1">
   <inertial>
@@ -173,6 +192,10 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="fr_wheel_link_1">
+        <mu1 value="1000000.0"/>
+        <mu2 value="1000000.0"/>
+</gazebo>
 
 <link name="fl_steer_link_1">
   <inertial>
@@ -185,7 +208,7 @@
     <geometry>
       <mesh filename="package://delivery_gazebo/meshes/fl_steer_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="0.3 0.25 -0.15" rpy="0 0 0"/>
@@ -194,6 +217,9 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="fl_steer_link_1">
+        <material>Gazebo/Yellow</material>
+</gazebo>
 
 <link name="fl_wheel_link_1">
   <inertial>
@@ -215,57 +241,61 @@
     </geometry>
   </collision>
 </link>
+<gazebo reference="fl_wheel_link_1">
+        <mu1 value="1000000.0"/>
+        <mu2 value="1000000.0"/>
+</gazebo>
 
-<joint name="Revolute 1" type="continuous">
+<joint name="steering_rear_left_joint" type="continuous">
   <origin xyz="0.3 -0.25 0.15" rpy="0 0 0"/>
   <parent link="chassis"/>
   <child link="rl_steer_link_1"/>
   <axis xyz="0.0 0.0 -1.0"/>
 </joint>
 
-<joint name="Revolute 2" type="continuous">
+<joint name="wheel_rear_left_joint" type="continuous">
   <origin xyz="0.026756 -0.061506 -0.139352" rpy="0 0 0"/>
   <parent link="rl_steer_link_1"/>
   <child link="rl_wheel_link_1"/>
   <axis xyz="-0.441333 0.897343 -0.0"/>
 </joint>
 
-<joint name="Revolute 3" type="continuous">
+<joint name="steering_rear_right_joint" type="continuous">
   <origin xyz="0.3 0.25 0.15" rpy="0 0 0"/>
   <parent link="chassis"/>
   <child link="rr_steer_link_1"/>
   <axis xyz="0.0 0.0 -1.0"/>
 </joint>
 
-<joint name="Revolute 4" type="continuous">
+<joint name="wheel_rear_right_joint" type="continuous">
   <origin xyz="0.026756 0.061506 -0.139352" rpy="0 0 0"/>
   <parent link="rr_steer_link_1"/>
   <child link="rr_wheel_link_1"/>
   <axis xyz="-0.441333 -0.897343 -0.0"/>
 </joint>
 
-<joint name="Revolute 5" type="continuous">
+<joint name="steering_front_right_joint" type="continuous">
   <origin xyz="-0.3 0.25 0.15" rpy="0 0 0"/>
   <parent link="chassis"/>
   <child link="fr_steer_link_1"/>
   <axis xyz="0.0 0.0 -1.0"/>
 </joint>
 
-<joint name="Revolute 6" type="continuous">
+<joint name="wheel_front_right_joint" type="continuous">
   <origin xyz="-0.026756 0.061506 -0.139352" rpy="0 0 0"/>
   <parent link="fr_steer_link_1"/>
   <child link="fr_wheel_link_1"/>
   <axis xyz="-0.441333 0.897343 -0.0"/>
 </joint>
 
-<joint name="Revolute 7" type="continuous">
+<joint name="steering_front_left_joint" type="continuous">
   <origin xyz="-0.3 -0.25 0.15" rpy="0 0 0"/>
   <parent link="chassis"/>
   <child link="fl_steer_link_1"/>
   <axis xyz="0.0 0.0 -1.0"/>
 </joint>
 
-<joint name="Revolute 8" type="continuous">
+<joint name="wheel_front_left_joint" type="continuous">
   <origin xyz="-0.026756 -0.061506 -0.139352" rpy="0 0 0"/>
   <parent link="fl_steer_link_1"/>
   <child link="fl_wheel_link_1"/>

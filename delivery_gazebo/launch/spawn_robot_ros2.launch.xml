@@ -1,10 +1,14 @@
 <?xml version='1.0' ?>
 <launch>
   <include file="$(find-pkg-share delivery_gazebo)/launch/start_world.launch.py"/>
-
   <!-- Publish URDF file in robot_description topic -->
   <include file="$(find-pkg-share delivery_gazebo)/launch/rsp.launch.py"/>
   <!-- Read robot_description an dspawn in gazebo running sim -->
   <include file="$(find-pkg-share delivery_gazebo)/launch/spawn_robot_description.launch.py"/>
+  
+  <include file="$(find-pkg-share delivery_bringup)/launch/start_controller.launch.py"/>
+  <!-- <include file="$(find-pkg-share delivery_bringup)/launch/swerve_control_odom.launch.py"/> -->
+  <include file="$(find-pkg-share swerve_controller)/launch/swerve_control_odom.launch.py"/>
+  <include file="$(find-pkg-share delivery_bringup)/launch/teleop_joy.launch.py"/>
   
 </launch>

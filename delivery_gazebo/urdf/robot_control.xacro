@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+   <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>    
+    <joint name="steering_rear_left_joint">
+      <command_interface name="position">
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="steering_rear_right_joint">
+      <command_interface name="position">
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="steering_front_right_joint">
+      <command_interface name="position">
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="steering_front_left_joint">
+      <command_interface name="position">
+        <param name="min">-2.1</param>
+        <param name="max">2.1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+ <!-- Velocity Config -->
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>    
+    <joint name="wheel_rear_left_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="wheel_rear_right_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="wheel_front_right_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="wheel_front_left_joint">
+      <command_interface name="velocity">
+        <param name="min">-20</param>
+        <param name="max">20</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <!-- <parameters>$(find box_car_description)/config/steering_controller_velocity.yaml</parameters> -->
+      <parameters>$(find delivery_bringup)/config/swerve_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+</robot>
