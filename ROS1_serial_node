@@ -1,0 +1,3 @@
+functions:
+- subcribe to cmd_vel and send to serial port
+- read IMU sensor and publish to IMU topic
