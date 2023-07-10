@@ -19,27 +19,34 @@ void send_cmd_vel_callback(const geometry_msgs::Twist::ConstPtr& msg)
     DataToByte w_angular_vel;
     x_linear_vel.f = msg->linear.x;
     y_linear_vel.f = msg->linear.y;
-    w_angular_vel.f =msg->angular.z;
-    
-    //linear_x_bytes
-    cmdPacket[4] = x_linear_vel.s[0];
-    cmdPacket[5] = x_linear_vel.s[1];
-    cmdPacket[6] = x_linear_vel.s[2];
-    cmdPacket[7] = x_linear_vel.s[3];
+    w_angular_vel.f = msg->angular.z;
 
-    //linear_y_bytes
-    cmdPacket[8] = y_linear_vel.s[0];
-    cmdPacket[9] = y_linear_vel.s[1];
-    cmdPacket[10] = y_linear_vel.s[2];
-    cmdPacket[11] = y_linear_vel.s[3];
+    if (msg->linear.z < 0){
+        cmdPacket[18] = {'$', 0x01, 0x00, 0x00, 0,0,0,0, 0,0,0,0, 0,0,0,0, '\r','\n' };//reset mcu
+        ser.write(cmdPacket,sizeof(cmdPacket));
+    }
+    else{    
 
-    //angular_w_bytes
-    cmdPacket[12] = w_angular_vel.s[0];
-    cmdPacket[13] = w_angular_vel.s[1];
-    cmdPacket[14] = w_angular_vel.s[2];
-    cmdPacket[15] = w_angular_vel.s[3];
+        //linear_x_bytes
+        cmdPacket[4] = x_linear_vel.s[0];
+        cmdPacket[5] = x_linear_vel.s[1];
+        cmdPacket[6] = x_linear_vel.s[2];
+        cmdPacket[7] = x_linear_vel.s[3];
 
-    ser.write(cmdPacket,sizeof(cmdPacket));
+        //linear_y_bytes
+        cmdPacket[8] = y_linear_vel.s[0];
+        cmdPacket[9] = y_linear_vel.s[1];
+        cmdPacket[10] = y_linear_vel.s[2];
+        cmdPacket[11] = y_linear_vel.s[3];
+
+        //angular_w_bytes
+        cmdPacket[12] = w_angular_vel.s[0];
+        cmdPacket[13] = w_angular_vel.s[1];
+        cmdPacket[14] = w_angular_vel.s[2];
+        cmdPacket[15] = w_angular_vel.s[3];
+
+        ser.write(cmdPacket,sizeof(cmdPacket));
+    }
 }
 
 int main(int argc, char **argv)
