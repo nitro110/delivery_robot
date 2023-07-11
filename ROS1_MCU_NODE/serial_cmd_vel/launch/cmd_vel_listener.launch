@@ -1,6 +1,0 @@
-<launch>
-
-  <node pkg="serial_cmd_vel" type="serial_cmd_vel_node" name="serial_cmd_vel_node" required="true">
-  </node>
-
-</launch>
