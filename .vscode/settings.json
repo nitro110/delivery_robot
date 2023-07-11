@@ -1,4 +1,4 @@
 {
-    "cmake.sourceDirectory": "/home/khanh/ros2_ws/src/",
+    "cmake.sourceDirectory": "/home/khanh/khanh_repo/src",
     "C_Cpp.errorSquiggles": "enabled"
 }
