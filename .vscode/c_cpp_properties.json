@@ -1,18 +1,20 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
             "includePath": [
-                "${workspaceFolder}/**",
                 "/opt/ros/noetic/include/**",
                 "/usr/include/**",
-                "/tmp/usr/local/include/**"
+                "${workspaceFolder}/rf2o_laser_odometry/include"
             ],
-            "defines": [],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu11",
-            "cppStandard": "c++14",
-            "intelliSenseMode": "linux-gcc-x64"
+            "cppStandard": "c++14"
         }
     ],
     "version": 4
