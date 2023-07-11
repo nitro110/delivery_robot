@@ -1,8 +1,0 @@
-prefix=/home/khanh/khanh_repo/src/delivery_robot/build/devel
-
-Name: serial_cmd_vel
-Description: Description of serial_cmd_vel
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp rospy geometry_msgs serial std_msgs
